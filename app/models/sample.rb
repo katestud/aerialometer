@@ -1,18 +1,18 @@
 class Sample < ActiveRecord::Base
 
-  def process
-    path = Rails.root.join('AERIAL00.csv').to_s
-    data = SmarterCSV.process(path)
-    data.each do |d|
-      Sample.create(
-        performance_index: d[:t],
-        accel_x: d[:x],
-        accel_y: d[:y],
-        accel_z: d[:z],
-        gyro_x: d[:rx],
-        gyro_y: d[:ry],
-        gyro_z: d[:rz],
-        )
-    end
+  def acceleration_x
+    accel_x || 0
   end
+
+  def acceleration_y
+    accel_y || 0
+  end
+
+  def acceleration_z
+    accel_z || 0
+  end
+
+
+
+
 end

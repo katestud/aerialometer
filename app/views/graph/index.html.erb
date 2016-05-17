@@ -62,7 +62,7 @@ var svg = d3.select("body").append("svg")
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-var url = '/acceleration/index.json';
+var url = '/acceleration/index';
 
 d3.json(url, function (data) {
     data.forEach(function(d) {
