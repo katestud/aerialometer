@@ -34,8 +34,12 @@ var margin = {top: 20, right: 20, bottom: 30, left: 50},
 
 var formatDate = d3.time.format("%d-%b-%y");
 
-var x = d3.time.scale()
+// var x = d3.time.scale()
+//     .range([0, width]);
+//
+var x = d3.scale.linear()
     .range([0, width]);
+
 
 var y = d3.scale.linear()
     .range([height, 0]);
@@ -85,7 +89,7 @@ d3.json(url, function (data) {
       .attr("y", 6)
       .attr("dy", ".71em")
       .style("text-anchor", "end")
-      .text("Close ($)");
+      .text("Force(g)");
 
   svg.append("path")
       .datum(data)
