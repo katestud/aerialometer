@@ -1,7 +1,3 @@
-<svg id="graph", data-url="<%= @url %>">
-</svg>
-
-<script>
 
 var margin = {top: 20, right: 20, bottom: 30, left: 50},
     width = 960 - margin.left - margin.right,
@@ -34,7 +30,7 @@ var svg = d3.select("svg")
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-var url = d3.select("svg").attr("data-url")
+var url = '/acceleration/index';
 
 d3.json(url, function (data) {
     data.forEach(function(d) {
@@ -68,8 +64,3 @@ d3.json(url, function (data) {
       .attr("class", "line")
       .attr("d", line);
 });
-
-
-
-
-</script>

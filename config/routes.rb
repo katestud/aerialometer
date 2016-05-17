@@ -5,9 +5,10 @@ Rails.application.routes.draw do
 
   get 'samples/upload'
 
-  get 'graph/index'
+  post 'graph/index'
+  get 'graph/search'
 
-  get 'acceleration/index', format: 'json'
+  get 'acceleration/index/:start/:end' => 'acceleration#index', format: 'json'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

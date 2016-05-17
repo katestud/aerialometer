@@ -6,4 +6,5 @@ class UploaderController < ApplicationController
     file = params[:file].path
     Uploader.new(file)
   end
+  
 end

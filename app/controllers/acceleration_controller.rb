@@ -1,4 +1,5 @@
 class AccelerationController < ApplicationController
+
   def index
     starting = params[:start] || 0
     ending = params[:end] || 100

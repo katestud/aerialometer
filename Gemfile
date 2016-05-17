@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 gem 'activerecord-import', '~> 0.10.0'
 gem 'smarter_csv'
+gem 'd3-rails'
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5.1'

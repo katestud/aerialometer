@@ -13,3 +13,21 @@
  *= require_tree .
  *= require_self
  */
+
+
+ .axis path,
+ .axis line {
+   fill: none;
+   stroke: #000;
+   shape-rendering: crispEdges;
+ }
+
+ .x.axis path {
+   display: true;
+ }
+
+ .line {
+   fill: none;
+   stroke: cadetblue;
+   stroke-width: 1.5px;
+ }

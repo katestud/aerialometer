@@ -1,0 +1,8 @@
+<div>
+<h3>Select your starting and ending coordinates</h3>
+  <%= form_tag graph_index_path do %>
+    <%= text_field_tag :start %>
+    <%= text_field_tag :end %>
+    <%= submit_tag "Search" %>
+  <% end %>
+</div>
