@@ -1,9 +1,9 @@
 class Uploader
-  def initialize
-    path = Rails.root.join('AERIAL00.csv').to_s
+  def initialize(path)
+    # path = Rails.root.join('AERIAL00.csv').to_s
     data = SmarterCSV.process(path)
-    data.each do |d|
-      Sample.create(
+    samples = data.map do |d|
+      Sample.new(
         performance_index: d[:t],
         accel_x: d[:x],
         accel_y: d[:y],
@@ -13,6 +13,8 @@ class Uploader
         gyro_z: d[:rz],
         )
     end
+    Sample.import samples
   end
+
 
 end
