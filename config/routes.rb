@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'samples/upload'
+
   get 'graph/index'
 
   get 'acceleration/index'

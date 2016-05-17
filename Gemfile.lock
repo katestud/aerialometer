@@ -30,6 +30,8 @@ GEM
       activemodel (= 4.2.5.1)
       activesupport (= 4.2.5.1)
       arel (~> 6.0)
+    activerecord-import (0.10.0)
+      activerecord (>= 3.0)
     activesupport (4.2.5.1)
       i18n (~> 0.7)
       json (~> 1.7, >= 1.7.7)
@@ -115,6 +117,7 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
+    smarter_csv (1.1.0)
     spring (1.7.1)
     sprockets (3.6.0)
       concurrent-ruby (~> 1.0)
@@ -143,6 +146,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activerecord-import (~> 0.10.0)
   byebug
   coffee-rails (~> 4.1.0)
   jbuilder (~> 2.0)
@@ -150,6 +154,7 @@ DEPENDENCIES
   rails (= 4.2.5.1)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
+  smarter_csv
   spring
   sqlite3
   turbolinks
