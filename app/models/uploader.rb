@@ -1,6 +1,5 @@
 class Uploader
   def initialize(path)
-    # path = Rails.root.join('AERIAL00.csv').to_s
     data = SmarterCSV.process(path)
     samples = data.map do |d|
       Sample.new(

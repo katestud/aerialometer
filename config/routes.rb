@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'uploader/new'
+
+  post 'uploader/create'
+
   get 'samples/upload'
 
   get 'graph/index'
