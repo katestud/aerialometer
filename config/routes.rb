@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :performances
+  root 'performances#index'
   get 'uploader/new'
 
   post 'uploader/create'
