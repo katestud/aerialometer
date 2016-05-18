@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'samples/upload'
 
   post 'graph/index'
+  get 'graph/index/' => 'graph#index'
   get 'graph/search'
 
   get 'acceleration/index/:start/:end' => 'acceleration#index', format: 'json'
