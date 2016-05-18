@@ -10,9 +10,6 @@ class PerformancesController < ApplicationController
   # GET /performances/1
   # GET /performances/1.json
   def show
-    @start = params[:start] || 0
-    @end = params[:end] || 500
-    # @url = "/acceleration/index/#{@start}/#{@end}"
     @url = "/acceleration/index/#{@performance.id}"
   end
 

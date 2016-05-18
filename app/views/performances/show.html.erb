@@ -13,4 +13,6 @@
 <%= link_to 'Edit', edit_performance_path(@performance) %> |
 <%= link_to 'Back', performances_path %>
 
-<%= render 'acceleration_graph' %>
+<% unless @performance.samples.empty? %>
+  <%= render 'acceleration_graph' %>
+<% end %> 
