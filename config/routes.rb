@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :performances
   get 'uploader/new'
 
   post 'uploader/create'
@@ -9,7 +10,7 @@ Rails.application.routes.draw do
   get 'graph/index/' => 'graph#index'
   get 'graph/search'
 
-  get 'acceleration/index/:start/:end' => 'acceleration#index', format: 'json'
+  get 'acceleration/index/:performance' => 'acceleration#index', format: 'json'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

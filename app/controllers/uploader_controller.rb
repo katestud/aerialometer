@@ -1,10 +1,12 @@
 class UploaderController < ApplicationController
   def new
+    @performances = Performance.all
   end
 
   def create
     file = params[:file].path
-    Uploader.new(file)
+    performance = params[:performance]
+    Uploader.new(file, performance)
   end
-  
+
 end

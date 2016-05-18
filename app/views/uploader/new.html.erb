@@ -2,6 +2,7 @@
 <h3>Import a CSV File</h3>
   <%= form_tag uploader_create_path, multipart: true do %>
     <%= file_field_tag :file %>
+    <%= select_tag :performance, options_from_collection_for_select(@performances, "id", "name"),  prompt: "Select performance" %>
     <%= submit_tag "Import CSV" %>
   <% end %>
 </div>

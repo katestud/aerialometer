@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160516232734) do
+ActiveRecord::Schema.define(version: 20160518165922) do
+
+  create_table "performances", force: :cascade do |t|
+    t.string   "name"
+    t.date     "date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "samples", force: :cascade do |t|
     t.decimal  "accel_x"
@@ -24,6 +31,7 @@ ActiveRecord::Schema.define(version: 20160516232734) do
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
     t.integer  "performance_index"
+    t.integer  "performance_id"
   end
 
 end

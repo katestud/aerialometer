@@ -1,4 +1,5 @@
 class Sample < ActiveRecord::Base
+  belongs_to :performance
 
   def acceleration_x
     accel_x || 0

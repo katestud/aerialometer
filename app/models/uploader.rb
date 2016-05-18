@@ -1,9 +1,10 @@
 class Uploader
-  def initialize(path)
+  def initialize(path, performance_id)
     data = SmarterCSV.process(path)
     samples = data.map do |d|
       Sample.new(
         performance_index: d[:t],
+        performance_id: performance_id,
         accel_x: d[:x],
         accel_y: d[:y],
         accel_z: d[:z],
