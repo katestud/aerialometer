@@ -26,8 +26,6 @@ class PerformancesController < ApplicationController
   # POST /performances.json
   def create
     @performance = Performance.new(performance_params)
-    file = params[:file].path
-    Uploader.new(file, @performance)
 
     respond_to do |format|
       if @performance.save
