@@ -1,8 +1,54 @@
 <div>
 <h3>Import a CSV File</h3>
   <%= form_tag uploader_create_path, multipart: true do %>
-    <%= file_field_tag :file %>
-    <%= select_tag :performance, options_from_collection_for_select(@performances, "id", "name"),  prompt: "Select performance" %>
+    <%= file_field_tag :file, required: true %>
+    <h3> Add Performance <h3>
+      <%= radio_button_tag(:select_performance, "Select Performance", checked: true) %>
+      <%= label_tag(:select_performance, "Select Performance") %><br>
+      <%= radio_button_tag(:select_performance, "Create New Performance") %>
+      <%= label_tag(:select_performance, "Create New Performance") %><br>
+    <%= select_tag :performance, options_from_collection_for_select(@performances, "id", "name"),  prompt: "Select performance", class: "performance_selection" %>
+    <%= text_field_tag :performance_name, nil, placeholder: "Performance Name", class: "performance_creation" %>
+    <%= date_field_tag :performance_date, nil, placeholder: "Select Date", class: "performance_creation" %>
     <%= submit_tag "Import CSV" %>
   <% end %>
 </div>
+
+<script>
+ $(function() {
+  var creation_fields = $(".performance_creation");
+  var select_menu = $(".performance_selection");
+  var select_existing = $("#select_performance_Select_Performance");
+  var create_new = $("#select_performance_Create_New_Performance");
+  if (select_existing.is(':checked')) {
+    creation_fields.hide();
+    select_menu.show();
+  } else {
+    creation_fields.show();
+    select_menu.hide();
+  };
+  select_existing.on('click', function () {
+    if (select_existing.is(':checked')) {
+      creation_fields.hide();
+      select_menu.show();
+    } else {
+      creation_fields.show();
+      select_menu.hide();
+    };
+  });
+  create_new.on('click', function () {
+    if (select_existing.is(':checked')) {
+      creation_fields.hide();
+      select_menu.show();
+    } else {
+      creation_fields.show();
+      select_menu.hide();
+    };
+  });
+});
+
+
+
+
+
+</script>
