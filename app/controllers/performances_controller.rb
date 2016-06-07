@@ -10,7 +10,8 @@ class PerformancesController < ApplicationController
   # GET /performances/1
   # GET /performances/1.json
   def show
-    @url = "/acceleration/index/#{@performance.id}"
+    @accel_url = "/acceleration/index/#{@performance.id}"
+    @gyro_url = "/gyroscope/index/#{@performance.id}"
   end
 
   # GET /performances/new

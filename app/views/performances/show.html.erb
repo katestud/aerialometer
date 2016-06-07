@@ -15,4 +15,12 @@
 
 <% unless @performance.samples.empty? %>
   <%= render 'acceleration_graph' %>
-<% end %> 
+<% end %>
+
+<div>
+  Select Data to Display:
+  <select id="change-data">
+    <option value="acceleration">Acceleration</option>
+    <option value="gyroscope">Gyroscope Data</option>
+  </select>
+</div>

@@ -1,4 +1,4 @@
-<svg id="graph", data-url="<%= @url %>">
+<svg id="graph", data-accel-url="<%= @accel_url %>", data-gyro-url="<%= @gyro_url %>">
 </svg>
 
 <script>
@@ -11,7 +11,6 @@ var margin = {top: 20, right: 20, bottom: 30, left: 50},
 
 var x = d3.scale.linear()
     .range([0, width]);
-
 
 var y = d3.scale.linear()
     .range([height, 0]);
@@ -34,40 +33,67 @@ var svg = d3.select("svg")
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-var url = d3.select("svg").attr("data-url")
+var accelUrl = d3.select("svg").attr("data-accel-url");
+var gyroUrl = d3.select("svg").attr("data-gyro-url");
 
-d3.json(url, function (data) {
-    data.forEach(function(d) {
-      // d.date = formatDate.parse(d.date);
-      d.date = +d.date;
-      d.acceleration = +d.acceleration;
-      return d;
-    });
+function displayData(url) {
+  d3.json(url, function (data) {
+      data.forEach(function(d) {
+        // d.date = formatDate.parse(d.date);
+        d.date = +d.date;
+        d.acceleration = +d.acceleration;
+        return d;
+      });
 
 
-  x.domain(d3.extent(data, function(d) { return d.date; }));
-  y.domain(d3.extent(data, function(d) { return d.acceleration; }));
+    x.domain(d3.extent(data, function(d) { return d.date; }));
+    y.domain(d3.extent(data, function(d) { return d.acceleration; }));
 
-  svg.append("g")
-      .attr("class", "x axis")
-      .attr("transform", "translate(0," + height + ")")
-      .call(xAxis);
+    svg.append("g")
+        .attr("class", "x axis")
+        .attr("transform", "translate(0," + height + ")")
+        .call(xAxis);
 
-  svg.append("g")
-      .attr("class", "y axis")
-      .call(yAxis)
-    .append("text")
-      .attr("transform", "rotate(-90)")
-      .attr("y", 6)
-      .attr("dy", ".71em")
-      .style("text-anchor", "end")
-      .text("Force(g)");
+    svg.append("g")
+        .attr("class", "y axis")
+        .call(yAxis)
+      .append("text")
+        .attr("transform", "rotate(-90)")
+        .attr("y", 6)
+        .attr("dy", ".71em")
+        .style("text-anchor", "end")
+        .text("Force(g)");
 
-  svg.append("path")
-      .datum(data)
-      .attr("class", "line")
-      .attr("d", line);
-});
+    svg.append("path")
+        .datum(data)
+        .attr("class", "line")
+        .attr("d", line);
+  });
+}
+
+displayData(accelUrl);
+
+function determineData() {
+  var selection = $('#change-data option:selected').text();
+  if (selection === "Acceleration") {
+    displayData(accelUrl);
+  } else {
+    displayData(gyroUrl);
+  };
+};
+
+
+// determineData();
+
+function changeData() {
+  $("#change-data").on("change", determineData);
+};
+
+changeData();
+
+// var dataDropdown = $("#change-data");
+// dataDropdown.on('change', determineData);
+
 
 
 

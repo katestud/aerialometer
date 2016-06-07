@@ -13,6 +13,18 @@ class Sample < ActiveRecord::Base
     accel_z || 0
   end
 
+  def gyroscope_x
+    gyro_x || 0
+  end
+
+  def gyroscope_y
+    gyro_y || 0
+  end
+
+  def gyroscope_z
+    gyro_z || 0
+  end
+
 
 
 

@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get 'graph/search'
 
   get 'acceleration/index/:performance' => 'acceleration#index', format: 'json'
+  get 'gyroscope/index/:performance' => 'gyroscope#index', format: 'json'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
