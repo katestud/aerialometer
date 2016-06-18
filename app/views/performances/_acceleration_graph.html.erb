@@ -69,7 +69,11 @@ function displayData(url) {
         .attr("class", "line")
         .attr("d", line);
   });
-}
+};
+
+function clearData() {
+  svg.selectAll("*").remove();
+};
 
 displayData(accelUrl);
 
@@ -85,11 +89,34 @@ function determineData() {
 
 // determineData();
 
-function changeData() {
-  $("#change-data").on("change", determineData);
-};
+// function changeData() {
+//   $("#change-data").on("change");
+//   // var value = $("#change-data").val();
+//   console.log("hi")
+// };
 
-changeData();
+// changeData();
+$( function() {
+  $("#change-data").change(function() {
+    var value = $("#change-data").val();
+    console.log('hello')
+    if (value === "acceleration") {
+      clearData();
+      displayData(accelUrl);
+    } else {
+      clearData();
+      displayData(gyroUrl);
+    };
+
+  });
+    });
+
+  // $( ".target" ).change(function() {
+  //   alert( "Handler for .change() called." );
+  // });
+
+
+
 
 // var dataDropdown = $("#change-data");
 // dataDropdown.on('change', determineData);
