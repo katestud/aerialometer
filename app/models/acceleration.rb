@@ -23,9 +23,12 @@ class Acceleration
     square(@sample.acceleration_z)
   end
 
-
   def performance_index
     @sample.performance_index
+  end
+
+  def timestamp
+    performance_index/208
   end
 
 end

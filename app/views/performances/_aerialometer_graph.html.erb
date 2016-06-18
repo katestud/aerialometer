@@ -7,8 +7,6 @@ var margin = {top: 20, right: 20, bottom: 30, left: 50},
     width = 960 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
 
-// var formatDate = d3.time.format("%d-%b-%y");
-
 var x = d3.scale.linear()
     .range([0, width]);
 
@@ -24,7 +22,7 @@ var yAxis = d3.svg.axis()
     .orient("left");
 
 var line = d3.svg.line()
-    .x(function(d) { return x(d.date); })
+    .x(function(d) { return x(d.time/208); })
     .y(function(d) { return y(d.acceleration); });
 
 var svg = d3.select("svg")
@@ -39,14 +37,13 @@ var gyroUrl = d3.select("svg").attr("data-gyro-url");
 function displayData(url) {
   d3.json(url, function (data) {
       data.forEach(function(d) {
-        // d.date = formatDate.parse(d.date);
-        d.date = +d.date;
+        d.time = +d.time;
         d.acceleration = +d.acceleration;
         return d;
       });
 
 
-    x.domain(d3.extent(data, function(d) { return d.date; }));
+    x.domain(d3.extent(data, function(d) { return d.time/208; }));
     y.domain(d3.extent(data, function(d) { return d.acceleration; }));
 
     svg.append("g")
