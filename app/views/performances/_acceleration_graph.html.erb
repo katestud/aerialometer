@@ -77,29 +77,9 @@ function clearData() {
 
 displayData(accelUrl);
 
-function determineData() {
-  var selection = $('#change-data option:selected').text();
-  if (selection === "Acceleration") {
-    displayData(accelUrl);
-  } else {
-    displayData(gyroUrl);
-  };
-};
-
-
-// determineData();
-
-// function changeData() {
-//   $("#change-data").on("change");
-//   // var value = $("#change-data").val();
-//   console.log("hi")
-// };
-
-// changeData();
 $( function() {
   $("#change-data").change(function() {
     var value = $("#change-data").val();
-    console.log('hello')
     if (value === "acceleration") {
       clearData();
       displayData(accelUrl);
@@ -107,20 +87,8 @@ $( function() {
       clearData();
       displayData(gyroUrl);
     };
-
   });
-    });
-
-  // $( ".target" ).change(function() {
-  //   alert( "Handler for .change() called." );
-  // });
-
-
-
-
-// var dataDropdown = $("#change-data");
-// dataDropdown.on('change', determineData);
-
+});
 
 
 
