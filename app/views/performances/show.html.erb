@@ -12,6 +12,11 @@
   <%= @performance.date %>
 </p>
 
+<p>
+  <strong>Battery Voltage:</strong>
+  <%= @performance.battery_voltage %>
+</p>
+
 <% unless @performance.samples.empty? %>
   <%= render 'aerialometer_graph' %>
 <% end %>
