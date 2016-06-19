@@ -1,7 +1,7 @@
 class Uploader
   def initialize(path, performance_id)
     performance = Performance.where('id = ?', performance_id).first
-    performance.battery_voltage = CSV.read(path).first.last
+    performance.battery_voltage = CSV.read(path, headers: true).headers.last
     performance.save
     SmarterCSV.process(path, {chunk_size: 10000}) do |chunk|
      samples = chunk.map do |d|
